@@ -8,7 +8,7 @@
 import UIKit
 
 enum Link: String {
-    case imageURL = "https://applelives.com/wp-content/uploads/2016/03/iPhone-SE-11.jpeg"
+    case imageURL = "https://vsegda-pomnim.com/uploads/posts/2022-04/1649335120_6-vsegda-pomnim-com-p-bali-plyazh-foto-7.jpg"
     case exampleOne = "https://swiftbook.ru//wp-content/uploads/api/api_course"
     case exampleTwo = "https://swiftbook.ru//wp-content/uploads/api/api_courses"
     case exampleThree = "https://swiftbook.ru//wp-content/uploads/api/api_website_description"

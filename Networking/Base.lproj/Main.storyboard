@@ -85,7 +85,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="R81-5n-yow">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="courseCell" id="R81-5n-yow">
                                 <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="hNy-rx-nfx">
@@ -123,21 +123,41 @@
             </objects>
             <point key="canvasLocation" x="489" y="-55"/>
         </scene>
-        <!--View Controller-->
+        <!--Image View Controller-->
         <scene sceneID="jlp-h3-cZt">
             <objects>
-                <viewController id="ojM-MC-rFi" sceneMemberID="viewController">
+                <viewController id="ojM-MC-rFi" customClass="ImageViewController" customModule="Networking" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UaX-k8-N4i">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mTx-rk-um3">
+                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
+                            </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="h4r-bK-wbj">
+                                <rect key="frame" x="150" y="274" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="tSi-9t-4s8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="mTx-rk-um3" firstAttribute="top" secondItem="tSi-9t-4s8" secondAttribute="top" id="7q9-5c-1kQ"/>
+                            <constraint firstItem="h4r-bK-wbj" firstAttribute="centerY" secondItem="UaX-k8-N4i" secondAttribute="centerY" id="9eD-y6-Eta"/>
+                            <constraint firstItem="mTx-rk-um3" firstAttribute="leading" secondItem="tSi-9t-4s8" secondAttribute="leading" id="A0Z-Ma-Q9M"/>
+                            <constraint firstItem="h4r-bK-wbj" firstAttribute="centerX" secondItem="UaX-k8-N4i" secondAttribute="centerX" id="Wcs-2N-4ZV"/>
+                            <constraint firstItem="mTx-rk-um3" firstAttribute="trailing" secondItem="tSi-9t-4s8" secondAttribute="trailing" id="khg-oi-cT5"/>
+                            <constraint firstItem="mTx-rk-um3" firstAttribute="bottom" secondItem="tSi-9t-4s8" secondAttribute="bottom" id="ySz-uf-X38"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="FeU-vB-9DD"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="h4r-bK-wbj" id="Zta-sq-z0B"/>
+                        <outlet property="imageView" destination="mTx-rk-um3" id="JVe-XX-1qE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y6w-0j-faK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2063" y="-462"/>
+            <point key="canvasLocation" x="2062.5" y="-462.67605633802816"/>
         </scene>
     </scenes>
     <resources>
