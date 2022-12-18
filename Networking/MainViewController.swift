@@ -138,28 +138,54 @@ extension MainViewController {
                 print(error?.localizedDescription ?? "fatal error!")
                 return
             }
+            do {
+                let courses = try JSONDecoder().decode([Course].self, from: data)
+                self.showSuccesAlert()
+                print(courses)
+            } catch {
+                print(error.localizedDescription)
+                self.showFailedAlert()
+            }
         }.resume()
     }
     
     private func exampleThreeButtonPressed() {
-        guard let url = URL(string: Link.exampleTwo.rawValue) else { return }
+        guard let url = URL(string: Link.exampleThree.rawValue) else { return }
         
         URLSession.shared.dataTask(with: url) { data, _, error in
             guard let data = data else {
                 print(error?.localizedDescription ?? "fatal error!")
                 return
+            }
+            do {
+                let websiteDescription = try JSONDecoder().decode(WebsiteDescription.self, from: data)
+                print(websiteDescription)
+                self.showSuccesAlert()
+            } catch {
+                print(error.localizedDescription)
+                self.showFailedAlert()
             }
         }.resume()
     }
     
     private func exampleFourButtonPressed() {
-        guard let url = URL(string: Link.exampleTwo.rawValue) else { return }
+        guard let url = URL(string: Link.exampleFour.rawValue) else { return }
         
         URLSession.shared.dataTask(with: url) { data, _, error in
             guard let data = data else {
-                print(error?.localizedDescription ?? "fatal error!")
+                print(error?.localizedDescription ?? "no localized description")
                 return
             }
+            do {
+                let websiteDescription = try JSONDecoder().decode(WebsiteDescription.self, from: data)
+                print(websiteDescription)
+                self.showSuccesAlert()
+                
+            } catch {
+                print(error.localizedDescription)
+                self.showFailedAlert()
+            }
+            
         }.resume()
     }
 }
