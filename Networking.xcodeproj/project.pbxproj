@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5447F772294F079B006EBB58 /* CourseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5447F771294F079B006EBB58 /* CourseCell.swift */; };
+		5447F776294F0858006EBB58 /* CoursesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5447F775294F0858006EBB58 /* CoursesTableViewController.swift */; };
 		547CFB73294DBF7C001B54C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547CFB72294DBF7C001B54C6 /* AppDelegate.swift */; };
 		547CFB75294DBF7C001B54C6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547CFB74294DBF7C001B54C6 /* SceneDelegate.swift */; };
 		547CFB7A294DBF7C001B54C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 547CFB78294DBF7C001B54C6 /* Main.storyboard */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5447F771294F079B006EBB58 /* CourseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseCell.swift; sourceTree = "<group>"; };
+		5447F775294F0858006EBB58 /* CoursesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesTableViewController.swift; sourceTree = "<group>"; };
 		547CFB6F294DBF7C001B54C6 /* Networking.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Networking.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		547CFB72294DBF7C001B54C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		547CFB74294DBF7C001B54C6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,8 +69,10 @@
 				547CFB72294DBF7C001B54C6 /* AppDelegate.swift */,
 				547CFB74294DBF7C001B54C6 /* SceneDelegate.swift */,
 				547CFB78294DBF7C001B54C6 /* Main.storyboard */,
+				5447F771294F079B006EBB58 /* CourseCell.swift */,
 				547CFB86294DC2C2001B54C6 /* UserActionCell.swift */,
 				547CFB88294DC6FB001B54C6 /* MainViewController.swift */,
+				5447F775294F0858006EBB58 /* CoursesTableViewController.swift */,
 				547CFB8C294EAD6F001B54C6 /* Course.swift */,
 				547CFB8A294DE9AC001B54C6 /* ImageViewController.swift */,
 				547CFB7B294DBF7D001B54C6 /* Assets.xcassets */,
@@ -150,6 +156,8 @@
 				547CFB8D294EAD6F001B54C6 /* Course.swift in Sources */,
 				547CFB87294DC2C2001B54C6 /* UserActionCell.swift in Sources */,
 				547CFB73294DBF7C001B54C6 /* AppDelegate.swift in Sources */,
+				5447F772294F079B006EBB58 /* CourseCell.swift in Sources */,
+				5447F776294F0858006EBB58 /* CoursesTableViewController.swift in Sources */,
 				547CFB8B294DE9AC001B54C6 /* ImageViewController.swift in Sources */,
 				547CFB75294DBF7C001B54C6 /* SceneDelegate.swift in Sources */,
 				547CFB89294DC6FB001B54C6 /* MainViewController.swift in Sources */,
