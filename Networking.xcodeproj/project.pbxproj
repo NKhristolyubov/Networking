@@ -15,6 +15,7 @@
 		547CFB87294DC2C2001B54C6 /* UserActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547CFB86294DC2C2001B54C6 /* UserActionCell.swift */; };
 		547CFB89294DC6FB001B54C6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547CFB88294DC6FB001B54C6 /* MainViewController.swift */; };
 		547CFB8B294DE9AC001B54C6 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547CFB8A294DE9AC001B54C6 /* ImageViewController.swift */; };
+		547CFB8D294EAD6F001B54C6 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547CFB8C294EAD6F001B54C6 /* Course.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		547CFB86294DC2C2001B54C6 /* UserActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserActionCell.swift; sourceTree = "<group>"; };
 		547CFB88294DC6FB001B54C6 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		547CFB8A294DE9AC001B54C6 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		547CFB8C294EAD6F001B54C6 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				547CFB78294DBF7C001B54C6 /* Main.storyboard */,
 				547CFB86294DC2C2001B54C6 /* UserActionCell.swift */,
 				547CFB88294DC6FB001B54C6 /* MainViewController.swift */,
+				547CFB8C294EAD6F001B54C6 /* Course.swift */,
 				547CFB8A294DE9AC001B54C6 /* ImageViewController.swift */,
 				547CFB7B294DBF7D001B54C6 /* Assets.xcassets */,
 				547CFB7D294DBF7D001B54C6 /* LaunchScreen.storyboard */,
@@ -144,6 +147,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				547CFB8D294EAD6F001B54C6 /* Course.swift in Sources */,
 				547CFB87294DC2C2001B54C6 /* UserActionCell.swift in Sources */,
 				547CFB73294DBF7C001B54C6 /* AppDelegate.swift in Sources */,
 				547CFB8B294DE9AC001B54C6 /* ImageViewController.swift in Sources */,

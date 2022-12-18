@@ -29,37 +29,37 @@ private let reuseIdentifier = "Cell"
 class MainViewController: UICollectionViewController {
     
     private let userActions = UserAction.allCases
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using [segue destinationViewController].
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
     // MARK: UICollectionViewDataSource
-
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         userActions.count
     }
-
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! UserActionCell
         let userAction = userActions[indexPath.item]
         cell.userActionLabel.text = userAction.rawValue
         return cell
     }
-
+    
     // MARK: UICollectionViewDelegate
-
+    
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let userAction = userActions[indexPath.item]
         switch userAction {
@@ -72,7 +72,35 @@ class MainViewController: UICollectionViewController {
         case .ourCourses: performSegue(withIdentifier: "showCourses", sender: nil)
         }
     }
-
+    
+    
+    
+    private func showSuccesAlert() {
+        DispatchQueue.main.async {
+            
+            let alert = UIAlertController(
+                title: "SucceEEEEEEEEEEEEEEDDDDs",
+                message: "You can see the results in the debug area",
+                preferredStyle: .alert)
+            
+            let okAction = UIAlertAction(title: "cancel", style: .cancel)
+            
+            alert.addAction(okAction)
+            self.present(alert, animated: true)
+        }
+    }
+    
+    private func showFailedAlert() {
+        DispatchQueue.main.async {
+            
+            let alert = UIAlertController(title: "Failed!", message: "You can see the fiileds in the debug areaXXXXXXXXXXXXXXXXXXXXXXx", preferredStyle: .alert)
+            
+            let okAction = UIAlertAction(title: "cancel", style: .cancel)
+            
+            alert.addAction(okAction)
+            self.present(alert, animated: true)
+        }
+    }
 }
 
 extension MainViewController: UICollectionViewDelegateFlowLayout {
@@ -84,18 +112,54 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
 extension MainViewController {
     
     private func exampleOneButtonPressed() {
+        guard let url = URL(string: Link.exampleOne.rawValue) else { return }
         
+        URLSession.shared.dataTask(with: url) { data, _, error in
+            guard let data = data else {
+                print(error?.localizedDescription ?? "fatal error!")
+                return
+            }
+            do {
+                let course = try JSONDecoder().decode(Course.self, from: data)
+                print(course)
+                self.showSuccesAlert()
+            } catch {
+                self.showFailedAlert()
+                print(error.localizedDescription)
+            }
+        }.resume()
     }
     
     private func exampleTwoButtonPressed() {
+        guard let url = URL(string: Link.exampleTwo.rawValue) else { return }
         
+        URLSession.shared.dataTask(with: url) { data, _, error in
+            guard let data = data else {
+                print(error?.localizedDescription ?? "fatal error!")
+                return
+            }
+        }.resume()
     }
     
     private func exampleThreeButtonPressed() {
+        guard let url = URL(string: Link.exampleTwo.rawValue) else { return }
         
+        URLSession.shared.dataTask(with: url) { data, _, error in
+            guard let data = data else {
+                print(error?.localizedDescription ?? "fatal error!")
+                return
+            }
+        }.resume()
     }
     
     private func exampleFourButtonPressed() {
+        guard let url = URL(string: Link.exampleTwo.rawValue) else { return }
         
+        URLSession.shared.dataTask(with: url) { data, _, error in
+            guard let data = data else {
+                print(error?.localizedDescription ?? "fatal error!")
+                return
+            }
+        }.resume()
     }
 }
