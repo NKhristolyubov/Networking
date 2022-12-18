@@ -79,7 +79,7 @@ class MainViewController: UICollectionViewController {
         DispatchQueue.main.async {
             
             let alert = UIAlertController(
-                title: "SucceEEEEEEEEEEEEEEDDDDs",
+                title: "Succes",
                 message: "You can see the results in the debug area",
                 preferredStyle: .alert)
             
@@ -93,7 +93,7 @@ class MainViewController: UICollectionViewController {
     private func showFailedAlert() {
         DispatchQueue.main.async {
             
-            let alert = UIAlertController(title: "Failed!", message: "You can see the fiileds in the debug areaXXXXXXXXXXXXXXXXXXXXXXx", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Failed!", message: "You can see the fiileds in the debug area", preferredStyle: .alert)
             
             let okAction = UIAlertAction(title: "cancel", style: .cancel)
             
@@ -116,7 +116,7 @@ extension MainViewController {
         
         URLSession.shared.dataTask(with: url) { data, _, error in
             guard let data = data else {
-                print(error?.localizedDescription ?? "fatal error!")
+                print(error?.localizedDescription ?? "no localized description!")
                 return
             }
             do {
@@ -135,7 +135,7 @@ extension MainViewController {
         
         URLSession.shared.dataTask(with: url) { data, _, error in
             guard let data = data else {
-                print(error?.localizedDescription ?? "fatal error!")
+                print(error?.localizedDescription ?? "no localized description!")
                 return
             }
         }.resume()
@@ -146,7 +146,7 @@ extension MainViewController {
         
         URLSession.shared.dataTask(with: url) { data, _, error in
             guard let data = data else {
-                print(error?.localizedDescription ?? "fatal error!")
+                print(error?.localizedDescription ?? "no localized description!")
                 return
             }
         }.resume()
@@ -157,7 +157,7 @@ extension MainViewController {
         
         URLSession.shared.dataTask(with: url) { data, _, error in
             guard let data = data else {
-                print(error?.localizedDescription ?? "fatal error!")
+                print(error?.localizedDescription ?? "no localized description!")
                 return
             }
         }.resume()
