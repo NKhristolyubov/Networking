@@ -73,6 +73,13 @@ class MainViewController: UICollectionViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showCourses" {
+            guard let coursesVC = segue.destination as? CoursesTableViewController else { return }
+            coursesVC.fetchCoutses()
+        }
+    }
+    
     
     
     private func showSuccesAlert() {

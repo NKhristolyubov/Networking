@@ -8,22 +8,27 @@
 import UIKit
 
 class CourseCell: UITableViewCell {
-
+    
     @IBOutlet var courseImageView: UIImageView!
     
     @IBOutlet var nameOfCourseLabel: UILabel!
     @IBOutlet var numberOfLessonsLabel: UILabel!
-    @IBOutlet var nemberOfTestsLabel: UILabel!
+    @IBOutlet var numberOfTestsLabel: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    
+    func configureCell(course: Course) {
+        
+        nameOfCourseLabel.text = course.name
+        numberOfLessonsLabel.text = "Number of lessons: \(course.number_of_lessons ?? 0)"
+        numberOfTestsLabel.text = "Number of tests: \(course.number_of_tests ?? 0)"
+        
+        DispatchQueue.global().async {
+            guard let url = URL(string: course.imageUrl ?? "") else { return }
+            guard let imageData = try? Data(contentsOf: url) else { return }
+            
+            DispatchQueue.main.async {
+                self.courseImageView.image = UIImage(data: imageData)
+            }
+        }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }

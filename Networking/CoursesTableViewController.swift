@@ -8,39 +8,62 @@
 import UIKit
 
 class CoursesTableViewController: UITableViewController {
-
+    
+    var courses:[Course] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        tableView.rowHeight = 100
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
+        
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
+    
     // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        
+        courses.count
     }
-
-    /*
+    
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "courseCell", for: indexPath) as! CourseCell
+        
+        let course = courses[indexPath.row]
+        cell.configureCell(course: course)
+        
+        
         return cell
     }
-    */
-
+    
+}
+extension CoursesTableViewController {
+    func fetchCoutses() {
+        guard let url = URL(string: Link.exampleTwo.rawValue) else { return }
+        
+        URLSession.shared.dataTask(with: url) { data, _, error in
+            guard let data = data else {
+                print(error?.localizedDescription ?? "no localized description")
+                return
+            }
+            
+            do {
+                self.courses = try JSONDecoder().decode([Course].self, from: data)
+                
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+            catch {
+                print(error.localizedDescription)
+            }
+        }.resume()
+    }
+}
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -86,4 +109,4 @@ class CoursesTableViewController: UITableViewController {
     }
     */
 
-}
+

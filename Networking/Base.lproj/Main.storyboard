@@ -63,7 +63,7 @@
                     <navigationItem key="navigationItem" title="Actions" id="am2-ch-Ss3"/>
                     <connections>
                         <segue destination="ojM-MC-rFi" kind="show" identifier="showImage" id="qad-1K-zzA"/>
-                        <segue destination="GnM-Ke-ro8" kind="show" identifier="courseSegue" id="g5t-SY-4KC"/>
+                        <segue destination="GnM-Ke-ro8" kind="show" identifier="showCourses" id="g5t-SY-4KC"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XfD-sy-ySA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -132,8 +132,8 @@
                                 <connections>
                                     <outlet property="courseImageView" destination="eh6-QB-Q1P" id="jkV-Zn-Do3"/>
                                     <outlet property="nameOfCourseLabel" destination="0bn-uM-a9F" id="G3d-zv-jTP"/>
-                                    <outlet property="nemberOfTestsLabel" destination="sNV-MH-O2M" id="5ou-8b-i9U"/>
                                     <outlet property="numberOfLessonsLabel" destination="fc5-Ov-OEK" id="4rB-aE-McU"/>
+                                    <outlet property="numberOfTestsLabel" destination="sNV-MH-O2M" id="5ou-8b-i9U"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
