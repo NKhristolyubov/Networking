@@ -39,7 +39,10 @@ class NetworkManager {
             }
             
             do {
-                let dataType = try JSONDecoder().decode(T.self, from: data)
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                
+                let dataType = try decoder.decode(T.self, from: data)
                 DispatchQueue.main.async {
                     completion(.success(dataType))
                 }
@@ -50,18 +53,21 @@ class NetworkManager {
     }
     
     func fetchImage(url: String, completion: @escaping(Result<Data, NetworkError>) -> Void) {
-        guard let url = URL(string: url) else {
-            completion(.failure(.invalidUrl))
-            return
-        }
-        
-        guard let imageData = try? Data(contentsOf: url) else {
-            completion(.failure(.noData))
-            return
-        }
-        
-        DispatchQueue.main.async {
-            completion(.success(imageData))
+        DispatchQueue.global().async {
+            
+            guard let url = URL(string: url) else {
+                completion(.failure(.invalidUrl))
+                return
+            }
+            
+            guard let imageData = try? Data(contentsOf: url) else {
+                completion(.failure(.noData))
+                return
+            }
+            
+            DispatchQueue.main.async {
+                completion(.success(imageData))
+            }
         }
     }
 }

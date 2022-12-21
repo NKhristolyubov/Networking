@@ -16,10 +16,10 @@ enum UserAction: String, CaseIterable {
     case ourCourses = "Our Courses"
 }
 
-private let reuseIdentifier = "Cell"
 
 class MainViewController: UICollectionViewController {
     
+    private let reuseIdentifier = "Cell"
     private let userActions = UserAction.allCases
     
     override func viewDidLoad() {
@@ -27,15 +27,14 @@ class MainViewController: UICollectionViewController {
         
     }
     
-    /*
      // MARK: - Navigation
      
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using [segue destinationViewController].
-     // Pass the selected object to the new view controller.
+         if segue.identifier == "showCourses" {
+             guard let coursesVC = segue.destination as? CoursesTableViewController else { return }
+             coursesVC.fetchCoutses()
+         }
      }
-     */
     
     // MARK: UICollectionViewDataSource
     
@@ -64,15 +63,6 @@ class MainViewController: UICollectionViewController {
         case .ourCourses: performSegue(withIdentifier: "showCourses", sender: nil)
         }
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showCourses" {
-            guard let coursesVC = segue.destination as? CoursesTableViewController else { return }
-            coursesVC.fetchCoutses()
-        }
-    }
-    
-    
     
     private func showSuccesAlert() {
         DispatchQueue.main.async {
@@ -111,80 +101,54 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
 extension MainViewController {
     
     private func exampleOneButtonPressed() {
-        guard let url = URL(string: Link.exampleOne.rawValue) else { return }
-        
-        URLSession.shared.dataTask(with: url) { data, _, error in
-            guard let data = data else {
-                print(error?.localizedDescription ?? "no localized description!")
-                return
-            }
-            do {
-                let course = try JSONDecoder().decode(Course.self, from: data)
-                print(course)
+        NetworkManager.shared.fetch(dataType: Course.self, url: Link.exampleOne.rawValue) { result in
+            switch result {
+            case .success(let course):
                 self.showSuccesAlert()
-            } catch {
+                print(course)
+            case .failure(let error):
                 self.showFailedAlert()
                 print(error.localizedDescription)
             }
-        }.resume()
+        }
     }
     
     private func exampleTwoButtonPressed() {
-        guard let url = URL(string: Link.exampleTwo.rawValue) else { return }
-        
-        URLSession.shared.dataTask(with: url) { data, _, error in
-            guard let data = data else {
-                print(error?.localizedDescription ?? "no localized description!")
-                return
-            }
-            do {
-                let courses = try JSONDecoder().decode([Course].self, from: data)
+        NetworkManager.shared.fetch(dataType: [Course].self, url: Link.exampleTwo.rawValue) { result in
+            switch result {
+            case .success(let courses):
                 self.showSuccesAlert()
                 print(courses)
-            } catch {
-                print(error.localizedDescription)
+            case .failure(let error):
                 self.showFailedAlert()
+                print(error.localizedDescription)
             }
-        }.resume()
+        }
     }
     
     private func exampleThreeButtonPressed() {
-        guard let url = URL(string: Link.exampleThree.rawValue) else { return }
-        
-        URLSession.shared.dataTask(with: url) { data, _, error in
-            guard let data = data else {
-                print(error?.localizedDescription ?? "no localized description!")
-                return
-            }
-            do {
-                let websiteDescription = try JSONDecoder().decode(WebsiteDescription.self, from: data)
-                print(websiteDescription)
+        NetworkManager.shared.fetch(dataType: WebsiteDescription.self, url: Link.exampleThree.rawValue) { result in
+            switch result {
+            case .success(let websiteDescription):
                 self.showSuccesAlert()
-            } catch {
-                print(error.localizedDescription)
+                print(websiteDescription)
+            case .failure(let error):
                 self.showFailedAlert()
+                print(error.localizedDescription)
             }
-        }.resume()
+        }
     }
     
     private func exampleFourButtonPressed() {
-        guard let url = URL(string: Link.exampleFour.rawValue) else { return }
-        
-        URLSession.shared.dataTask(with: url) { data, _, error in
-            guard let data = data else {
-                print(error?.localizedDescription ?? "no localized description!")
-                return
-            }
-            do {
-                let websiteDescription = try JSONDecoder().decode(WebsiteDescription.self, from: data)
-                print(websiteDescription)
+        NetworkManager.shared.fetch(dataType: WebsiteDescription.self, url: Link.exampleFour.rawValue) { result in
+            switch result {
+            case .success(let websiteDescription):
                 self.showSuccesAlert()
-                
-            } catch {
-                print(error.localizedDescription)
+                print(websiteDescription)
+            case .failure(let error):
                 self.showFailedAlert()
+                print(error.localizedDescription)
             }
-            
-        }.resume()
+        }
     }
 }

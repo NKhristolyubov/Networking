@@ -13,7 +13,7 @@ class CoursesTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.rowHeight = 100
+        tableView.rowHeight = 120
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -43,25 +43,17 @@ class CoursesTableViewController: UITableViewController {
 }
 extension CoursesTableViewController {
     func fetchCoutses() {
-        guard let url = URL(string: Link.exampleTwo.rawValue) else { return }
-        
-        URLSession.shared.dataTask(with: url) { data, _, error in
-            guard let data = data else {
-                print(error?.localizedDescription ?? "no localized description")
-                return
-            }
-            
-            do {
-                self.courses = try JSONDecoder().decode([Course].self, from: data)
-                
+        NetworkManager.shared.fetch(dataType: [Course].self, url: Link.exampleTwo.rawValue) { result in
+            switch result {
+            case .success(let courses):
                 DispatchQueue.main.async {
+                    self.courses = courses
                     self.tableView.reloadData()
                 }
-            }
-            catch {
+            case .failure(let error):
                 print(error.localizedDescription)
             }
-        }.resume()
+        }
     }
 }
     /*

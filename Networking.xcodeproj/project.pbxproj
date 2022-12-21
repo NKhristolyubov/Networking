@@ -68,21 +68,69 @@
 		547CFB71294DBF7C001B54C6 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				5480FCF22952BE94007C4959 /* SupportFiles */,
+				5480FCF12952BE83007C4959 /* Storyboards */,
+				5480FCF32952BEAC007C4959 /* ViewControllers */,
+				5480FCF42952BEB8007C4959 /* Services */,
+				5480FCEF2952BE68007C4959 /* Models */,
+				5480FCF02952BE75007C4959 /* MediaFiles */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		5480FCEF2952BE68007C4959 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				547CFB8C294EAD6F001B54C6 /* Course.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5480FCF02952BE75007C4959 /* MediaFiles */ = {
+			isa = PBXGroup;
+			children = (
+				547CFB7B294DBF7D001B54C6 /* Assets.xcassets */,
+			);
+			path = MediaFiles;
+			sourceTree = "<group>";
+		};
+		5480FCF12952BE83007C4959 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				547CFB78294DBF7C001B54C6 /* Main.storyboard */,
+				547CFB7D294DBF7D001B54C6 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		5480FCF22952BE94007C4959 /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
 				547CFB72294DBF7C001B54C6 /* AppDelegate.swift */,
 				547CFB74294DBF7C001B54C6 /* SceneDelegate.swift */,
-				547CFB78294DBF7C001B54C6 /* Main.storyboard */,
+				547CFB80294DBF7D001B54C6 /* Info.plist */,
+			);
+			path = SupportFiles;
+			sourceTree = "<group>";
+		};
+		5480FCF32952BEAC007C4959 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
 				5447F771294F079B006EBB58 /* CourseCell.swift */,
 				547CFB86294DC2C2001B54C6 /* UserActionCell.swift */,
 				547CFB88294DC6FB001B54C6 /* MainViewController.swift */,
-				5480FCED2952B4A0007C4959 /* NetworkManager.swift */,
 				5447F775294F0858006EBB58 /* CoursesTableViewController.swift */,
-				547CFB8C294EAD6F001B54C6 /* Course.swift */,
 				547CFB8A294DE9AC001B54C6 /* ImageViewController.swift */,
-				547CFB7B294DBF7D001B54C6 /* Assets.xcassets */,
-				547CFB7D294DBF7D001B54C6 /* LaunchScreen.storyboard */,
-				547CFB80294DBF7D001B54C6 /* Info.plist */,
 			);
-			path = Networking;
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		5480FCF42952BEB8007C4959 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				5480FCED2952B4A0007C4959 /* NetworkManager.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -314,7 +362,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = AAASSVY7UK;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Networking/Info.plist;
+				INFOPLIST_FILE = Networking/SupportFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -349,7 +397,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = AAASSVY7UK;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Networking/Info.plist;
+				INFOPLIST_FILE = Networking/SupportFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
