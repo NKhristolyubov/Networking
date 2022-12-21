@@ -18,6 +18,7 @@
 		547CFB89294DC6FB001B54C6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547CFB88294DC6FB001B54C6 /* MainViewController.swift */; };
 		547CFB8B294DE9AC001B54C6 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547CFB8A294DE9AC001B54C6 /* ImageViewController.swift */; };
 		547CFB8D294EAD6F001B54C6 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 547CFB8C294EAD6F001B54C6 /* Course.swift */; };
+		5480FCEE2952B4A0007C4959 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5480FCED2952B4A0007C4959 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		547CFB88294DC6FB001B54C6 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		547CFB8A294DE9AC001B54C6 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		547CFB8C294EAD6F001B54C6 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
+		5480FCED2952B4A0007C4959 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				5447F771294F079B006EBB58 /* CourseCell.swift */,
 				547CFB86294DC2C2001B54C6 /* UserActionCell.swift */,
 				547CFB88294DC6FB001B54C6 /* MainViewController.swift */,
+				5480FCED2952B4A0007C4959 /* NetworkManager.swift */,
 				5447F775294F0858006EBB58 /* CoursesTableViewController.swift */,
 				547CFB8C294EAD6F001B54C6 /* Course.swift */,
 				547CFB8A294DE9AC001B54C6 /* ImageViewController.swift */,
@@ -153,6 +156,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5480FCEE2952B4A0007C4959 /* NetworkManager.swift in Sources */,
 				547CFB8D294EAD6F001B54C6 /* Course.swift in Sources */,
 				547CFB87294DC2C2001B54C6 /* UserActionCell.swift in Sources */,
 				547CFB73294DBF7C001B54C6 /* AppDelegate.swift in Sources */,

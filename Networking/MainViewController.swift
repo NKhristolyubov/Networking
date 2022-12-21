@@ -7,14 +7,6 @@
 
 import UIKit
 
-enum Link: String {
-    case imageURL = "https://vsegda-pomnim.com/uploads/posts/2022-04/1649335120_6-vsegda-pomnim-com-p-bali-plyazh-foto-7.jpg"
-    case exampleOne = "https://swiftbook.ru//wp-content/uploads/api/api_course"
-    case exampleTwo = "https://swiftbook.ru//wp-content/uploads/api/api_courses"
-    case exampleThree = "https://swiftbook.ru//wp-content/uploads/api/api_website_description"
-    case exampleFour = "https://swiftbook.ru//wp-content/uploads/api/api_missing_or_wrong_fields"
-}
-
 enum UserAction: String, CaseIterable {
     case downloadImage = "Download Image"
     case exampleOne = "Example One"
