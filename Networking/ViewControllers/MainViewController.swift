@@ -15,6 +15,7 @@ enum UserAction: String, CaseIterable {
     case exampleFour = "Example Four"
     case exampleFive = "Example Five"
     case ourCourses = "Our Courses"
+    case postRequest = "Post Request"
 }
 
 
@@ -67,6 +68,7 @@ class MainViewController: UICollectionViewController {
         case .exampleFour: exampleFourButtonPressed()
         case .exampleFive: performSegue(withIdentifier: "showCoursesV2", sender: nil)
         case .ourCourses: performSegue(withIdentifier: "showCourses", sender: nil)
+        case .postRequest: postRequestButtonPressed()
         }
     }
     
@@ -158,4 +160,24 @@ extension MainViewController {
         }
     }
     
+    private func postRequestButtonPressed() {
+        
+        let course = [
+            "name": "Nerworking",
+            "imageUrl": "imageUrl",
+            "numberOfLessons": "8",
+            "nemberOfTests": "20"
+        ]
+        
+        NetworkManager.shared.postRequest(data: course, url: Link.postRequest.rawValue) { result in
+            switch result {
+            case .success(let course):
+                print(course)
+                self.showSuccesAlert()
+            case .failure(let error):
+                print(error)
+                self.showFailedAlert()
+            }
+        }
+    }
 }
