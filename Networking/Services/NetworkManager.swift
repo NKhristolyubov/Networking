@@ -108,4 +108,34 @@ class NetworkManager {
             }
         }.resume()
     }
+    
+    func postRequest(data: CourseV3, url: String, completion: @escaping(Result<CourseV3, NetworkError>) -> Void) {
+        
+        guard let url = URL(string: url) else {
+            completion(.failure(.invalidUrl))
+            return
+        }
+        
+        let courseData = try? JSONEncoder().encode(data)
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = courseData
+        
+        URLSession.shared.dataTask(with: request) { data, _, error in
+            guard let data = data else {
+                completion(.failure(.noData))
+                return
+            }
+            
+            do {
+                let course = try JSONDecoder().decode(CourseV3.self, from: data)
+                completion(.success(course))
+            } catch {
+                completion(.failure(.decodingError))
+            }
+        }.resume()
+        
+    }
 }

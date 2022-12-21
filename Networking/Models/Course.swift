@@ -27,6 +27,12 @@ struct CourseV2: Codable {
         case numberOfTests = "Number_of_tests"
     }
 }
+struct CourseV3: Codable {
+    let name: String
+    let imageUrl: String
+    let numberOfLessons: String
+    let numberOfTests: String
+}
 
 struct WebsiteDescription: Codable {
     let courses: [Course]?
