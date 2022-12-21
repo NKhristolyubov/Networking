@@ -13,6 +13,7 @@ enum UserAction: String, CaseIterable {
     case exampleTwo = "Example Two"
     case exampleThree = "Example Three"
     case exampleFour = "Example Four"
+    case exampleFive = "Example Five"
     case ourCourses = "Our Courses"
 }
 
@@ -30,9 +31,13 @@ class MainViewController: UICollectionViewController {
      // MARK: - Navigation
      
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-         if segue.identifier == "showCourses" {
+         if segue.identifier != "showImage" {
              guard let coursesVC = segue.destination as? CoursesTableViewController else { return }
-             coursesVC.fetchCoutses()
+             switch segue.identifier {
+             case "showCourses": coursesVC.fetchCourses()
+             case "showCoursesV2": coursesVC.fetchCoursesV2()
+             default: break
+             }
          }
      }
     
@@ -60,6 +65,7 @@ class MainViewController: UICollectionViewController {
         case .exampleTwo: exampleTwoButtonPressed()
         case .exampleThree: exampleThreeButtonPressed()
         case .exampleFour: exampleFourButtonPressed()
+        case .exampleFive: performSegue(withIdentifier: "showCoursesV2", sender: nil)
         case .ourCourses: performSegue(withIdentifier: "showCourses", sender: nil)
         }
     }
@@ -151,4 +157,5 @@ extension MainViewController {
             }
         }
     }
+    
 }

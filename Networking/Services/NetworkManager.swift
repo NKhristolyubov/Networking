@@ -8,12 +8,16 @@
 import Foundation
 
 enum Link: String {
-    case imageURL = "https://vsegda-pomnim.com/uploads/posts/2022-04/1649335120_6-vsegda-pomnim-com-p-bali-plyazh-foto-7.jpg"
+    case imageURL = "https://applelives.com/wp-content/uploads/2016/03/iPhone-SE-11.jpeg"
     case exampleOne = "https://swiftbook.ru//wp-content/uploads/api/api_course"
     case exampleTwo = "https://swiftbook.ru//wp-content/uploads/api/api_courses"
     case exampleThree = "https://swiftbook.ru//wp-content/uploads/api/api_website_description"
     case exampleFour = "https://swiftbook.ru//wp-content/uploads/api/api_missing_or_wrong_fields"
+    case exampleFive = "https://swiftbook.ru//wp-content/uploads/api/api_courses_capital"
+    case postRequest = "https://jsonplaceholder.typicode.com/posts"
+    case courseImageURL = "https://swiftbook.ru/wp-content/uploads/sites/2/2018/08/notifications-course-with-background.png"
 }
+
 
 enum NetworkError: Error {
     case invalidUrl
@@ -25,7 +29,7 @@ class NetworkManager {
     static let shared = NetworkManager()
     private init() {}
     
-    func fetch<T:Decodable>(dataType: T.Type, url: String, completion: @escaping(Result<T,NetworkError>) -> Void) {
+    func fetch<T: Decodable>(dataType: T.Type, url: String, convertFromSnakeCase: Bool = false, completion: @escaping(Result<T,NetworkError>) -> Void) {
         
         guard let url = URL(string: url) else {
             completion(.failure(.invalidUrl))
@@ -40,8 +44,9 @@ class NetworkManager {
             
             do {
                 let decoder = JSONDecoder()
-                decoder.keyDecodingStrategy = .convertFromSnakeCase
-                
+                if convertFromSnakeCase {
+                    decoder.keyDecodingStrategy = .convertFromSnakeCase
+                }
                 let dataType = try decoder.decode(T.self, from: data)
                 DispatchQueue.main.async {
                     completion(.success(dataType))
