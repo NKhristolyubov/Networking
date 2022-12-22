@@ -17,7 +17,6 @@ class CourseCell: UITableViewCell {
     
     
     func configureCell(course: Course) {
-        
         nameOfCourseLabel.text = course.name
         numberOfLessonsLabel.text = "Number of lessons: \(course.numberOfLessons ?? 0)"
         numberOfTestsLabel.text = "Number of tests: \(course.numberOfTests ?? 0)"
@@ -36,7 +35,6 @@ class CourseCell: UITableViewCell {
     }
     
     func configureCell(courseV2: CourseV2) {
-        
         nameOfCourseLabel.text = courseV2.name
         numberOfLessonsLabel.text = "Number of lessons: \(courseV2.numberOfLessons ?? 0)"
         numberOfTestsLabel.text = "Number of tests: \(courseV2.numberOfTests ?? 0)"

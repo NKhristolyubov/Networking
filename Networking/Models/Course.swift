@@ -13,6 +13,13 @@ struct Course: Codable {
     let numberOfLessons: Int?
     let numberOfTests: Int?
     
+    init(name: String, imageUrl: String, numberOfLessons: Int, numberOfTests: Int) {
+        self.name = name
+        self.imageUrl = imageUrl
+        self.numberOfLessons = numberOfLessons
+        self.numberOfTests = numberOfTests
+    }
+    
     init(courseData: [String: Any]) {
         name = courseData["name"] as? String
         imageUrl = courseData["imageUrl"] as? String
@@ -22,12 +29,14 @@ struct Course: Codable {
     
     static func getCourses(from value: Any) -> [Course] {
         guard let coursesData = value as? [[String: Any]] else { return [] }
-        var courses: [Course] = []
-        for courseData in coursesData {
-            let course = Course(courseData: courseData)
-            courses.append(course)
+//        var courses: [Course] = []
+//        for courseData in coursesData {
+//            let course = Course(courseData: courseData)
+//            courses.append(course)
+//        }
+//        return courses
+        return coursesData.compactMap {Course(courseData: $0)
         }
-        return courses
     }
 }
 

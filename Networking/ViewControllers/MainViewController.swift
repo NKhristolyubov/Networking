@@ -18,18 +18,13 @@ enum UserAction: String, CaseIterable {
     case postRequest = "Post Request"
     case postRequestModel = "Post Request with Model"
     case getAlamofire = "get Alamofire"
+    case postAlamofire = "post Alamofire"
 }
-
 
 class MainViewController: UICollectionViewController {
     
     private let reuseIdentifier = "Cell"
     private let userActions = UserAction.allCases
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
     
      // MARK: - Navigation
      
@@ -40,6 +35,7 @@ class MainViewController: UICollectionViewController {
              case "showCourses": coursesVC.fetchCourses()
              case "showCoursesV2": coursesVC.fetchCoursesV2()
              case "getAlamofire": coursesVC.getAlamofireButtonPressed()
+             case "postAlamofire": coursesVC.postAlamofireButtonPressed()
              default: break
              }
          }
@@ -74,6 +70,7 @@ class MainViewController: UICollectionViewController {
         case .postRequest: postRequestButtonPressed()
         case .postRequestModel: postRequestWithModel()
         case .getAlamofire: performSegue(withIdentifier: "getAlamofire", sender: nil)
+        case .postAlamofire: performSegue(withIdentifier: "postAlamofire", sender: nil)
         }
     }
     
@@ -104,6 +101,8 @@ class MainViewController: UICollectionViewController {
         }
     }
 }
+
+// MARK: - Extensions
 
 extension MainViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -172,7 +171,6 @@ extension MainViewController {
             "imageUrl" : "imageUrl",
             "numberOfLessons" : "8",
             "numberOfTests" : "20"
-        
         ]
         NetworkManager.shared.postRequest(data: post, url: Link.postRequest.rawValue) { result in
             switch result {
@@ -194,7 +192,6 @@ extension MainViewController {
         
         NetworkManager.shared.postRequest(data: courseV3, url: Link.postRequest.rawValue) { result in
             switch result {
-                
             case .success(let course):
                 print(course)
                 self.showSuccesAlert()

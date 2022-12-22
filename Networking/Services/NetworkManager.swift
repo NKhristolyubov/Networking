@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Alamofire
 
 enum Link: String {
     case imageURL = "https://applelives.com/wp-content/uploads/2016/03/iPhone-SE-11.jpeg"
@@ -17,7 +18,6 @@ enum Link: String {
     case postRequest = "https://jsonplaceholder.typicode.com/posts"
     case courseImageURL = "https://swiftbook.ru/wp-content/uploads/sites/2/2018/08/notifications-course-with-background.png"
 }
-
 
 enum NetworkError: Error {
     case invalidUrl
@@ -137,5 +137,40 @@ class NetworkManager {
             }
         }.resume()
         
+    }
+    
+    func getRequestWithAlamofire(url: String, completion: @escaping(Result<[Course], NetworkError>) -> Void) {
+        AF.request(url)
+            .validate()
+            .responseJSON { dataResponse in
+                switch dataResponse.result {
+                case .success(let value):
+                    let courses = Course.getCourses(from: value)
+                    completion(.success(courses))
+                case .failure(let error):
+                    print(error.localizedDescription)
+                    completion(.failure(.decodingError))
+                }
+            }
+    }
+    
+    func postRequestWithAlamofere(url: String, data: CourseV3, completion: @escaping(Result<Course, NetworkError>) -> Void) {
+        AF.request(url, method: .post, parameters: data)
+            .validate()
+            .responseDecodable(of: CourseV3.self) { responseData in
+                switch responseData.result {
+                case .success(let courseV3):
+                    let course = Course(
+                        name: courseV3.name,
+                        imageUrl: courseV3.imageUrl,
+                        numberOfLessons: Int(courseV3.numberOfLessons) ?? 0,
+                        numberOfTests: Int(courseV3.numberOfTests) ?? 0
+                    )
+                    completion(.success(course))
+                case .failure(_):
+                    completion(.failure(.decodingError))
+                                
+                }
+            }
     }
 }
