@@ -65,6 +65,7 @@
                         <segue destination="ojM-MC-rFi" kind="show" identifier="showImage" id="qad-1K-zzA"/>
                         <segue destination="GnM-Ke-ro8" kind="show" identifier="showCourses" id="g5t-SY-4KC"/>
                         <segue destination="GnM-Ke-ro8" kind="show" identifier="showCoursesV2" id="rRM-Y5-2qa"/>
+                        <segue destination="GnM-Ke-ro8" kind="show" identifier="getAlamofire" id="nhk-iC-Ccm"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XfD-sy-ySA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -147,7 +148,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1MP-m3-awW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2063" y="317"/>
+            <point key="canvasLocation" x="2484" y="343"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ctb-0a-gmY">
@@ -205,7 +206,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="rRM-Y5-2qa"/>
+        <segue reference="nhk-iC-Ccm"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
